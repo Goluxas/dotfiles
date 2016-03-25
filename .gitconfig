@@ -1,0 +1,11 @@
+[user]
+	email = douglasstorz@gmail.com
+	name = Douglas Storz
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff
+[color]
+	ui = auto
+[alias]
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
