@@ -20,7 +20,7 @@ fi
 # Set up symlinks
 ln -sv "$DOTFILES_DIR/.bash_profile" ~
 ln -sv "$DOTFILES_DIR/.bash_aliases" ~
-ln -sv "$DOTFILES_DIR/.ssh" ~
+ln -sv "$DOTFILES_DIR/.ssh/config" ~
 ln -sv "$DOTFILES_DIR/.gitconfig" ~
 ln -sv "$DOTFILES_DIR/.vimrc" ~
 
