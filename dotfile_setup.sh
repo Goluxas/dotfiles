@@ -20,18 +20,20 @@ fi
 # Set up symlinks
 ln -sv "$DOTFILES_DIR/.bash_profile" ~
 ln -sv "$DOTFILES_DIR/.bash_aliases" ~
-ln -sv "$DOTFILES_DIR/.ssh/config" ~
+ln -sv "$DOTFILES_DIR/.ssh/config" ~/.ssh
 ln -sv "$DOTFILES_DIR/.gitconfig" ~
 ln -sv "$DOTFILES_DIR/.vimrc" ~
 
 # Install Vundle plugins
 mkdir -p ~/.vim/bundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+echo -e "\nYou are about to get a Vim error about Solarized. Just hit enter and let it run.\n"
 vim +PluginInstall +qall
 
 # function in bash_aliases
 # sets up aliases for moving to working directories, restarting
 # services, and tailing log files
+source .bash_aliases
 setup_aliases
 
 # Script done, give further information
