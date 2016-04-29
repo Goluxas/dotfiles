@@ -29,6 +29,11 @@ mkdir -p ~/.vim/bundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
+# function in bash_aliases
+# sets up aliases for moving to working directories, restarting
+# services, and tailing log files
+setup_aliases
+
 # Script done, give further information
 echo "Dotfiles installed."
 echo "Old dotfiles available at ~/.original_dotfiles"
