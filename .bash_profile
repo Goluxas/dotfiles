@@ -91,6 +91,13 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# This is a secondary aliases file for workspace aliases.
+# It's separate from the normal aliases because they are different
+# on each machine and dynamically set at setup time.
+if [ -f ~/.workspace_aliases ]; then
+	. ~/.workspace_aliases
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).

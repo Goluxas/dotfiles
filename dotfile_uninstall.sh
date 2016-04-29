@@ -13,6 +13,17 @@ fi
 [ -h ~/.gitconfig ] && unlink ~/.gitconfig
 [ -h ~/.vimrc ] && unlink ~/.vimrc
 
+if [ -f ~/.workspace_aliases ]; then
+	echo "Would you like to delete .workspace_aliases as well? (Y/N): "
+	read ANSWER
+	if [ ANSWER == "Y" ]; then
+		rm ~/.workspace_aliases
+	else
+		echo ".workspace_aliases preserved, but remember to alter your .bash_profile to include them!"
+	fi
+fi
+
+
 # Copy over the backed up dotfiles
 # Keep track of any failures to move
 FAILED_TO_MOVE=false

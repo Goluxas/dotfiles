@@ -16,6 +16,7 @@ if [ -f ~/.ssh/config ]; then
 fi
 [ -f ~/.gitconfig ] && mv ~/.gitconfig ~/.original_dotfiles
 [ -f ~/.vimrc ] && mv ~/.vimrc ~/.original_dotfiles
+echo -e "\nYour dotfiles have been backed up to .original_dotfiles.\n"
 
 # Set up symlinks
 ln -sv "$DOTFILES_DIR/.bash_profile" ~
@@ -27,7 +28,8 @@ ln -sv "$DOTFILES_DIR/.vimrc" ~
 # Install Vundle plugins
 mkdir -p ~/.vim/bundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-echo -e "\nYou are about to get a Vim error about Solarized. Just hit enter and let it run.\n"
+echo -e "\nIf you saw a Git error message for Vundle, it's because it is already installed."
+echo -e "\nYou may get a Vim error about Solarized. Just hit enter and let it run.\n"
 vim +PluginInstall +qall
 
 # function in bash_aliases

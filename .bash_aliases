@@ -35,9 +35,9 @@ function setup_aliases() {
 		# -a = and
 		if [ -d $WORKING_DIR -a -n $ALIAS_NAME ]; then
 			if [ -z $VIRTUAL_ENV ]; then
-				echo -e "alias $ALIAS_NAME=\"cd $WORKING_DIR\"" >> ~/.bash_aliases
+				echo -e "alias $ALIAS_NAME=\"cd $WORKING_DIR\"" >> ~/.workspace_aliases
 			else
-				echo -e "alias $ALIAS_NAME=\"cd $WORKING_DIR; $VIRTUAL_ENV\"" >> ~/.bash_aliases
+				echo -e "alias $ALIAS_NAME=\"cd $WORKING_DIR; $VIRTUAL_ENV\"" >> ~/.workspace_aliases
 			fi
 		else
 			# Error messages
@@ -66,7 +66,7 @@ function setup_aliases() {
 			# You can also use || to do command if conditional is false
 			[ -z $LOG_LOCATION ] && LOG_LOCATION="/var/log/$service.log"
 			if [ -f $LOG_LOCATION ]; then
-				echo -e "alias log-$service=\"tail -f $LOG_LOCATION\"" >> ~/.bash_aliases
+				echo -e "alias log-$service=\"tail -f $LOG_LOCATION\"" >> ~/.workspace_aliases
 				TRY_AGAIN="N"
 			else
 				if [ $LOG_LOCATION == "N" ]; then
@@ -90,7 +90,7 @@ function setup_aliases() {
 			read DAEMON_LOCATION
 			[ -z $DAEMON_LOCATION ] && DAEMON_LOCATION="/etc/init.d/$service"
 			if [ -f $DAEMON_LOCATION ]; then
-				echo -e "alias re-$service=\"sudo $DAEMON_LOCATION restart\"" >> ~/.bash_aliases
+				echo -e "alias re-$service=\"sudo $DAEMON_LOCATION restart\"" >> ~/.workspace_aliases
 			else
 				if [ $DAEMON_LOCATION == "N" ]; then
 					TRY_AGAIN="N"
