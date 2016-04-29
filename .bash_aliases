@@ -18,8 +18,8 @@ function setup_aliases() {
 	echo "We will now set up your workspace aliases."
 	echo "First, the locations of working directories."
 
-	WD_DONE="N"
-	until [ $WD_DONE == "Y" ]; do
+	MORE_WORKSPACES="Y"
+	until [ $MORE_WORKSPACES == "N" ]; do
 		echo -n "Absolute Path: "
 		read WORKING_DIR
 
@@ -50,8 +50,8 @@ function setup_aliases() {
 			fi
 			# prompt for completion, because maybe they accidentally re-entered this loop
 		fi
-		echo -n "Done? (Y/N): "
-		read WD_DONE
+		echo -n "Do you have another workspace? (Y/N): "
+		read MORE_WORKSPACES
 	done
 	echo -e "Working Directory alias setup done.\n"
 	
@@ -91,6 +91,7 @@ function setup_aliases() {
 			[ -z $DAEMON_LOCATION ] && DAEMON_LOCATION="/etc/init.d/$service"
 			if [ -f $DAEMON_LOCATION ]; then
 				echo -e "alias re-$service=\"sudo $DAEMON_LOCATION restart\"" >> ~/.workspace_aliases
+				TRY_AGAIN="N"
 			else
 				if [ $DAEMON_LOCATION == "N" ]; then
 					TRY_AGAIN="N"

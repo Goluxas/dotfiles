@@ -14,12 +14,12 @@ fi
 [ -h ~/.vimrc ] && unlink ~/.vimrc
 
 if [ -f ~/.workspace_aliases ]; then
-	echo "Would you like to delete .workspace_aliases as well? (Y/N): "
+	echo -n "Would you like to delete .workspace_aliases as well? (Y/N): "
 	read ANSWER
 	if [ ANSWER == "Y" ]; then
 		rm ~/.workspace_aliases
 	else
-		echo ".workspace_aliases preserved, but remember to alter your .bash_profile to include them!"
+		echo -e "\n.workspace_aliases preserved, but remember to alter your .bash_profile to include them!"
 	fi
 fi
 
@@ -27,20 +27,12 @@ fi
 # Copy over the backed up dotfiles
 # Keep track of any failures to move
 FAILED_TO_MOVE=false
-mv ~/.original_dotfiles/.bash_profile ~/.bash_profile
-[ $? -ne 0 ] && FAILED_TO_MOVE=true
-
-mv ~/.original_dotfiles/.bash_aliases ~/.bash_aliases
-[ $? -ne 0 ] && FAILED_TO_MOVE=true
-
-mv ~/.original_dotfiles/.ssh/config ~/.ssh/config
-[ $? -ne 0 ] && FAILED_TO_MOVE=true
-
-mv ~/.original_dotfiles/.gitconfig ~/.gitconfig
-[ $? -ne 0 ] && FAILED_TO_MOVE=true
-
-mv ~/.original_dotfiles/.vimrc ~/.vimrc
-[ $? -ne 0 ] && FAILED_TO_MOVE=true
+files=( ".bash_profile" ".bash_aliases" ".ssh/config" ".gitconfig" ".vimrc" )
+for dotfile in "${files[@]}"
+do
+	[ -f ~/.original_dotfiles/$dotfile ] && mv ~/.original_dotfiles/$dotfile ~/$dotfile
+	[ $? -ne 0 ] && FAILED_TO_MOVE=true
+done
 
 if [ $FAILED_TO_MOVE ]; then
 	echo "There was an error moving your original dotfiles back into place."
