@@ -100,7 +100,7 @@ inoremap <C-d> from pprint import pprint<CR>with open('~/test.txt', 'a') as outf
 " Django dev shortcuts
 command Shell ! /opt/ncigf/manage.py shell
 command Dbshell ! /opt/ncigf/manage.py dbshell
-command Re-uwsgi ! sudo /etc/init.d/uwsgi restart
+command Reuwsgi ! sudo /etc/init.d/uwsgi restart
 
 " NerdTree activation on F2
 noremap <F2> :NERDTreeToggle<CR>
