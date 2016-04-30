@@ -4,7 +4,7 @@ alias rm="rm -i"
 
 ## Utility aliases
 # colorize ls every time
-alias ls="ls -G"
+alias ls="ls --color=auto"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."

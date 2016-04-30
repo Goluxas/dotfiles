@@ -8,6 +8,7 @@ DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Backup the original dotfiles in case something goes wrong
 mkdir ~/.original_dotfiles
+[ -f ~/.bashrc ] && mv ~/.bashrc ~/.original_dotfiles
 [ -f ~/.bash_profile ] && mv ~/.bash_profile ~/.original_dotfiles
 [ -f ~/.bash_aliases ] && mv ~/.bash_aliases ~/.original_dotfiles
 if [ -f ~/.ssh/config ]; then
