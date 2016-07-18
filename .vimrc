@@ -18,6 +18,8 @@ call vundle#end()
 filetype plugin indent on " required for Vundle
 
 "" Basic Settings
+set encoding=utf-8
+set termencoding=utf-8
 set number " line numbers
 set nowrap
 set tabstop=4 " width of tab in spaces
