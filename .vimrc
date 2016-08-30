@@ -36,8 +36,7 @@ au InsertEnter * let b:oldfdm = &l:fdm | setlocal fdm=manual
 au InsertLeave * let &l:fdm = b:oldfdm
 "
 "" Jedi-Vim config
-" disabling Jedi-Vim to see if its causing the slowdown on python editing
-"let g:jedi#show_call_signatures = "0"
+autocmd FileType python setlocal completeopt-=preview " disables docstring popup during autocompletion
 
 "" Solarized config
 " Enable Solarized
