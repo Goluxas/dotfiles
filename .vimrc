@@ -12,6 +12,7 @@ Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'scrooloose/nerdtree'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'unblevable/quick-scope'
+Plugin 'tmhedberg/SimpylFold'
 
 " Add all plugins between this line and vundle#begin()
 call vundle#end()
