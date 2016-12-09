@@ -10,6 +10,11 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 
 ## Functions
+# Make a directory and move to it at the same time
+function mkcd() {
+	mkdir "$1"
+	cd "$1"
+}
 # Setup for the Dotfiles deploy
 function setup_aliases() {
 	# Add services with logs/daemons to this array
