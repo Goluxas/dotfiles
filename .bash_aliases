@@ -8,6 +8,7 @@ alias ls="ls --color=auto"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias todos="grep -r -i 'TODO' ."
 
 ## Functions
 # Make a directory and move to it at the same time

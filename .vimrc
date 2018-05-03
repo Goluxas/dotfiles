@@ -6,13 +6,14 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim' " disabled due to lagginess
 Plug 'unblevable/quick-scope'
 Plug 'tmhedberg/SimpylFold'
 Plug 'leafgarland/typescript-vim'
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
 Plug 'Shougo/neocomplete.vim'
 Plug 'Quramy/tsuquyomi'
+Plug 'prettier/vim-prettier', {'do': 'npm install', 'for': ['javascript', 'typescript', 'less', 'scss'] }
 
 " Add all plugins between this line and vundle#begin()
 call plug#end()
@@ -110,7 +111,7 @@ command Reuwsgi ! sudo /etc/init.d/uwsgi restart
 augroup filtype_python
 	autocmd!
 	" the above line clears the group to prevent autocmd duplication
-	autocmd FileType python setlocal noexpandtab shiftwidth=4 softtabstop=4 " width of tab in spaces
+	autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4 " width of tab in spaces
 	"" Jedi-Vim config
 	autocmd FileType python setlocal completeopt-=preview " disables docstring popup during autocompletion
 augroup END
