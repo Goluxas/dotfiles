@@ -4,7 +4,12 @@ alias rm="rm -i"
 
 ## Utility aliases
 # colorize ls every time
-alias ls="ls --color=auto"
+if [[ $(uname -s) == Darwin ]]
+then
+  alias ls="ls -G"
+else
+  alias ls="ls --color=auto"
+fi
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
