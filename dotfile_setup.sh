@@ -31,7 +31,7 @@ mkdir -p ~/.vim/bundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 echo -e "\nIf you saw a Git error message for Vundle, it's because it is already installed."
 echo -e "\nYou may get a Vim error about Solarized. Just hit enter and let it run.\n"
-vim +PluginInstall +qall
+vim +PlugInstall +qall
 
 # function in bash_aliases
 # sets up aliases for moving to working directories, restarting
