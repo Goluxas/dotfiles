@@ -11,10 +11,10 @@ mkdir ~/.original_dotfiles
 [ -f ~/.bashrc ] && mv ~/.bashrc ~/.original_dotfiles
 [ -f ~/.bash_profile ] && mv ~/.bash_profile ~/.original_dotfiles
 [ -f ~/.bash_aliases ] && mv ~/.bash_aliases ~/.original_dotfiles
-if [ -f ~/.ssh/config ]; then
-	mkdir ~/.original_dotfiles/.ssh
-	mv ~/.ssh/config ~/.original_dotfiles
-fi
+#if [ -f ~/.ssh/config ]; then
+	#mkdir ~/.original_dotfiles/.ssh
+	#mv ~/.ssh/config ~/.original_dotfiles
+#fi
 [ -f ~/.gitconfig ] && mv ~/.gitconfig ~/.original_dotfiles
 [ -f ~/.vimrc ] && mv ~/.vimrc ~/.original_dotfiles
 echo -e "\nYour dotfiles have been backed up to .original_dotfiles.\n"
@@ -22,7 +22,7 @@ echo -e "\nYour dotfiles have been backed up to .original_dotfiles.\n"
 # Set up symlinks
 ln -sv "$DOTFILES_DIR/.bash_profile" ~
 ln -sv "$DOTFILES_DIR/.bash_aliases" ~
-ln -sv "$DOTFILES_DIR/.ssh/config" ~/.ssh
+#ln -sv "$DOTFILES_DIR/.ssh/config" ~/.ssh
 ln -sv "$DOTFILES_DIR/.gitconfig" ~
 ln -sv "$DOTFILES_DIR/.vimrc" ~
 
@@ -42,4 +42,4 @@ setup_aliases
 # Script done, give further information
 echo "Dotfiles installed."
 echo "Old dotfiles available at ~/.original_dotfiles"
-echo "Don't forget to set up your keys!"
+echo "Don't forget to set up your keys and copy over your ssh config!"
