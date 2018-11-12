@@ -26,10 +26,7 @@ ln -sv "$DOTFILES_DIR/.bash_aliases" ~
 ln -sv "$DOTFILES_DIR/.gitconfig" ~
 ln -sv "$DOTFILES_DIR/.vimrc" ~
 
-# Install Vundle plugins
-mkdir -p ~/.vim/bundle
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-echo -e "\nIf you saw a Git error message for Vundle, it's because it is already installed."
+# Install VimPlug plugins; VimPlug itself installs automatically on first run of Vim
 echo -e "\nYou may get a Vim error about Solarized. Just hit enter and let it run.\n"
 vim +PlugInstall +qall
 
