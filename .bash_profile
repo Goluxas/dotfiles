@@ -120,3 +120,7 @@ fi
 if [ -f ~/.bash_local ]; then
 	. ~/.bash_local
 fi
+
+# makes pipenv create the venv in the project directory instead of home
+# I like this better for collaborating
+export PIPENV_VENV_IN_PROJECT=1
