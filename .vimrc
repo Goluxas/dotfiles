@@ -42,8 +42,8 @@ au InsertEnter * let b:oldfdm = &l:fdm | setlocal fdm=manual
 au InsertLeave * let &l:fdm = b:oldfdm
 " Default tab settings (expand to 2 spaces)
 set expandtab
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
 
 "" Solarized config
 " Enable Solarized
@@ -132,13 +132,14 @@ endfunction
 "" TypeScript-specific settings
 augroup filetype_typescript
 	autocmd!
-	au FileType typescript setlocal expandtab softtabstop=2 shiftwidth=2
+	au FileType typescript setlocal expandtab softtabstop=4 shiftwidth=4
 	au FileType typescript setlocal foldmethod=syntax
 	au FileType typescript setlocal foldtext=MyFoldText()
 augroup END
 
 augroup filetype_cs
         autocmd!
+        au FileType cs setlocal expandtab softtabstop=4 shiftwidth=4
         au FileType cs setlocal foldmethod=syntax
 augroup END
 
