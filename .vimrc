@@ -137,6 +137,11 @@ augroup filetype_typescript
 	au FileType typescript setlocal foldtext=MyFoldText()
 augroup END
 
+augroup filetype_cs
+        autocmd!
+        au FileType cs setlocal foldmethod=syntax
+augroup END
+
 "" NerdTree Options ""
 " NerdTree activation on CTRL+n(erdtree)
 noremap <C-n> :NERDTreeToggle<CR>
