@@ -20,11 +20,15 @@ mkdir ~/.original_dotfiles
 echo -e "\nYour dotfiles have been backed up to .original_dotfiles.\n"
 
 # Set up symlinks
+ln -sv "$DOTFILES_DIR/.bashrc" ~
 ln -sv "$DOTFILES_DIR/.bash_profile" ~
 ln -sv "$DOTFILES_DIR/.bash_aliases" ~
 #ln -sv "$DOTFILES_DIR/.ssh/config" ~/.ssh
 ln -sv "$DOTFILES_DIR/.gitconfig" ~
 ln -sv "$DOTFILES_DIR/.vimrc" ~
+
+# Install vim and curl if they're missing
+sudo apt -y install vim curl
 
 # Install VimPlug plugins; VimPlug itself installs automatically on first run of Vim
 echo -e "\nYou may get a Vim error about Solarized. Just hit enter and let it run.\n"
@@ -34,7 +38,7 @@ vim +PlugInstall +qall
 # sets up aliases for moving to working directories, restarting
 # services, and tailing log files
 source .bash_aliases
-setup_aliases
+#setup_aliases # disabled due to divergent use case
 
 # Script done, give further information
 echo "Dotfiles installed."

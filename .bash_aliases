@@ -22,6 +22,9 @@ function mkcd() {
 	cd "$1"
 }
 # Setup for the Dotfiles deploy
+# outdated. my use case diverged too much from it and i didn't
+# feel like i had a good idea how to rework it, so disabled
+# from install script
 function setup_aliases() {
 	# Add services with logs/daemons to this array
 	services=( "uwsgi" "nginx" )
