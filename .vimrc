@@ -21,6 +21,7 @@ Plug 'Shougo/vimproc.vim', {'do': 'make'}
 Plug 'Shougo/neocomplete.vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'prettier/vim-prettier', {'do': 'npm install', 'for': ['javascript', 'typescript', 'less', 'scss'] }
+Plug 'Glench/Vim-Jinja2-Syntax' " Django (jinja2) template syntax highlighting
 
 " Add all plugins between this line and vundle#begin()
 call plug#end()
