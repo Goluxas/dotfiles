@@ -133,7 +133,7 @@ endfunction
 "" TypeScript-specific settings
 augroup filetype_typescript
 	autocmd!
-	au FileType typescript setlocal expandtab softtabstop=4 shiftwidth=4
+	au FileType typescript setlocal expandtab softtabstop=2 shiftwidth=2
 	au FileType typescript setlocal foldmethod=syntax
 	au FileType typescript setlocal foldtext=MyFoldText()
 augroup END
@@ -159,4 +159,6 @@ augroup filetype_nerdtree
 	autocmd FileType nerdtree nmap <buffer> o go
 	" makes n create a new file in the cursor's directory
 	autocmd FileType nerdtree nmap <buffer> n ma
+        " makes t open the file in a new tab, switch to it, and close nerdtree
+        autocmd Filetype nerdtree nmap <buffer> t T<C-n>gt
 augroup END
