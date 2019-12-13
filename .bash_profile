@@ -124,3 +124,4 @@ fi
 # makes pipenv create the venv in the project directory instead of home
 # I like this better for collaborating
 export PIPENV_VENV_IN_PROJECT=1
+export BASH_SILENCE_DEPRECATION_WARNING=1

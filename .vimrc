@@ -22,6 +22,7 @@ Plug 'Shougo/neocomplete.vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'prettier/vim-prettier', {'do': 'npm install', 'for': ['javascript', 'typescript', 'less', 'scss'] }
 Plug 'Glench/Vim-Jinja2-Syntax' " Django (jinja2) template syntax highlighting
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Add all plugins between this line and vundle#begin()
 call plug#end()
@@ -102,10 +103,6 @@ nnoremap <space> za
 " sudo write hack, for when you forget to sudo vim the file
 cmap w!! w !sudo tee > /dev/null %
 
-" Insert/Remove @skip for all tests
-" Mnemonic: CTRL + skiP, CTRL + TesT
-nnoremap <C-p> :%s/def test/@skip('skipped')\r\t&/gc<CR>
-nnoremap <C-t> :g/@skip/d<CR>
 
 " Fill in boilerplate debug output code
 inoremap <C-d> from pprint import pprint<CR>with open('~/test.txt', 'a') as outfile:<CR>
@@ -122,6 +119,10 @@ augroup filtype_python
 	autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4 " width of tab in spaces
 	"" Jedi-Vim config
 	autocmd FileType python setlocal completeopt-=preview " disables docstring popup during autocompletion
+        " Insert/Remove @skip for all tests
+        " Mnemonic: CTRL + skiP, CTRL + TesT
+        autocmd FileType python nnoremap <C-p> :%s/def test/@skip('skipped')\r\t&/gc<CR>
+        autocmd FileType python nnoremap <C-t> :g/@skip/d<CR>
 augroup END
 
 function MyFoldText()
@@ -145,8 +146,8 @@ augroup filetype_cs
 augroup END
 
 "" NerdTree Options ""
-" NerdTree activation on CTRL+n(erdtree)
-noremap <C-n> :NERDTreeToggle<CR>
+" NerdTree activation on CTRL+n(e)rdtree
+noremap <C-e> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$', '\.js.map$', '\.js$']
 
 " let NERDTreeQuitOnOpen = 1 
@@ -161,4 +162,21 @@ augroup filetype_nerdtree
 	autocmd FileType nerdtree nmap <buffer> n ma
         " makes t open the file in a new tab, switch to it, and close nerdtree
         autocmd Filetype nerdtree nmap <buffer> t T<C-n>gt
+augroup END
+
+let g:go_fmt_command = "goimports"
+let g:go_highlight_functions = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_function_calls = 1
+let g:go_auto_type_info = 1
+augroup filetype_go
+        autocmd!
+        autocmd FileType go setlocal autowrite
+        autocmd FileType go map <C-n> :cnext<CR>
+        autocmd FileType go map <C-m> :cprevious<CR>
+        autocmd FileType go nmap <leader>b <Plug>(go-build)
+        autocmd FileType go nmap <leader>r <Plug>(go-run)
+        autocmd FileType go nmap <leader>i <Plug>(go-info)
+        autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4
 augroup END
