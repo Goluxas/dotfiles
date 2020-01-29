@@ -21,6 +21,14 @@ function mkcd() {
 	mkdir "$1"
 	cd "$1"
 }
+
+# Perform iconv on a csv file and output to a new file
+function icnv() {
+    oldfile=$1
+    newfile="${oldfile/.csv/-iconv.csv}"
+    iconv -c -f utf-8 -t ascii $1 > $newfile
+}
+
 # Setup for the Dotfiles deploy
 # outdated. my use case diverged too much from it and i didn't
 # feel like i had a good idea how to rework it, so disabled
