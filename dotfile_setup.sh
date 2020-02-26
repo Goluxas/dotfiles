@@ -11,6 +11,7 @@ mkdir ~/.original_dotfiles
 [ -f ~/.bashrc ] && mv ~/.bashrc ~/.original_dotfiles
 [ -f ~/.bash_profile ] && mv ~/.bash_profile ~/.original_dotfiles
 [ -f ~/.bash_aliases ] && mv ~/.bash_aliases ~/.original_dotfiles
+[ -f ~/.inputrc ] && mv ~/.inputrc ~/.original_dotfiles
 #if [ -f ~/.ssh/config ]; then
 	#mkdir ~/.original_dotfiles/.ssh
 	#mv ~/.ssh/config ~/.original_dotfiles
@@ -23,6 +24,7 @@ echo -e "\nYour dotfiles have been backed up to .original_dotfiles.\n"
 ln -sv "$DOTFILES_DIR/.bashrc" ~
 ln -sv "$DOTFILES_DIR/.bash_profile" ~
 ln -sv "$DOTFILES_DIR/.bash_aliases" ~
+ln -sv "$DOTFILES_DIR/.inputrc" ~
 #ln -sv "$DOTFILES_DIR/.ssh/config" ~/.ssh
 ln -sv "$DOTFILES_DIR/.gitconfig" ~
 ln -sv "$DOTFILES_DIR/.vimrc" ~

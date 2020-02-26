@@ -7,8 +7,10 @@ fi
 
 # Unlink Gitted dotfiles
 # ONLY unlink if they're symlinks in the first place
+[ -h ~/.bashrc ] && unlink ~/.bashrc
 [ -h ~/.bash_profile ] && unlink ~/.bash_profile
 [ -h ~/.bash_aliases ] && unlink ~/.bash_aliases
+[ -h ~/.inputrc ] && unlink ~/.inputrc
 #[ -h ~/.ssh/config ] && unlink ~/.ssh/config
 [ -h ~/.gitconfig ] && unlink ~/.gitconfig
 [ -h ~/.vimrc ] && unlink ~/.vimrc
@@ -26,7 +28,7 @@ fi
 # Copy over the backed up dotfiles
 # Keep track of any failures to move
 FAILED_TO_MOVE=false
-files=( ".bashrc" ".bash_profile" ".bash_aliases" ".gitconfig" ".vimrc" ) # used to also include ".ssh/config" 
+files=( ".bashrc" ".bash_profile" ".bash_aliases" ".inputrc" ".gitconfig" ".vimrc" ) # used to also include ".ssh/config" 
 for dotfile in "${files[@]}"
 do
 	if [ -f ~/.original_dotfiles/$dotfile ]; then
