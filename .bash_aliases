@@ -15,6 +15,8 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias todos="grep -r -i 'TODO' ."
 
+alias remux="tmux attach-session -t"
+
 ## Functions
 # Make a directory and move to it at the same time
 function mkcd() {
@@ -29,10 +31,11 @@ function icnv() {
     iconv -c -f utf-8 -t ascii $1 > $newfile
 }
 
-# Setup for the Dotfiles deploy
-# outdated. my use case diverged too much from it and i didn't
+# NOTE: the below is outdated. my use case diverged too much from it and i didn't
 # feel like i had a good idea how to rework it, so disabled
 # from install script
+
+# Setup for the Dotfiles deploy
 function setup_aliases() {
 	# Add services with logs/daemons to this array
 	services=( "uwsgi" "nginx" )
