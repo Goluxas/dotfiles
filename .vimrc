@@ -123,6 +123,7 @@ augroup filtype_python
         " Mnemonic: CTRL + skiP, CTRL + TesT
         autocmd FileType python nnoremap <C-p> :%s/def test/@skip('skipped')\r\t&/gc<CR>
         autocmd FileType python nnoremap <C-t> :g/@skip/d<CR>
+        autocmd FileType python nnoremap <leader>r :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 augroup END
 
 function MyFoldText()
