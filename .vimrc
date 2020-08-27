@@ -124,6 +124,7 @@ augroup filtype_python
         autocmd FileType python nnoremap <C-p> :%s/def test/@skip('skipped')\r\t&/gc<CR>
         autocmd FileType python nnoremap <C-t> :g/@skip/d<CR>
         autocmd FileType python nnoremap <leader>r :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+        autocmd FileType python nnoremap <leader>s :syntax sync fromstart<CR>
 augroup END
 
 function MyFoldText()
