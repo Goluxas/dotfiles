@@ -18,6 +18,7 @@ mkdir ~/.original_dotfiles
 #fi
 [ -f ~/.gitconfig ] && mv ~/.gitconfig ~/.original_dotfiles
 [ -f ~/.vimrc ] && mv ~/.vimrc ~/.original_dotfiles
+[ -f ~/.tmux.conf ] && mv ~/.tmux.conf ~/.original_dotfiles
 echo -e "\nYour dotfiles have been backed up to .original_dotfiles.\n"
 
 # Set up symlinks
@@ -28,6 +29,7 @@ ln -sv "$DOTFILES_DIR/.inputrc" ~
 #ln -sv "$DOTFILES_DIR/.ssh/config" ~/.ssh
 ln -sv "$DOTFILES_DIR/.gitconfig" ~
 ln -sv "$DOTFILES_DIR/.vimrc" ~
+ln -sv "$DOTFILES_DIR/.tmux.conf" ~
 
 # Install vim and curl if they're missing
 sudo apt -y install vim curl
