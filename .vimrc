@@ -127,6 +127,8 @@ augroup filtype_python
         autocmd FileType python nnoremap <leader>s :syntax sync fromstart<CR>
 augroup END
 
+command Argparse :normal! iimport argparse<CR>parser = argparse.ArgumentParser()<CR>parser.add_argument()<CR>args = parser.parse_args()
+
 function MyFoldText()
 	let line = getline(v:foldstart)
 	let lines = v:foldend - v:foldstart
