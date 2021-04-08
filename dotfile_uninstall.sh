@@ -14,6 +14,7 @@ fi
 #[ -h ~/.ssh/config ] && unlink ~/.ssh/config
 [ -h ~/.gitconfig ] && unlink ~/.gitconfig
 [ -h ~/.vimrc ] && unlink ~/.vimrc
+[ -h ~/.tmux.conf ] && unlink ~/.tmux.conf
 
 if [ -f ~/.workspace_aliases ]; then
 	echo -n "Would you like to delete .workspace_aliases as well? (Y/N): "
@@ -28,7 +29,7 @@ fi
 # Copy over the backed up dotfiles
 # Keep track of any failures to move
 FAILED_TO_MOVE=false
-files=( ".bashrc" ".bash_profile" ".bash_aliases" ".inputrc" ".gitconfig" ".vimrc" ) # used to also include ".ssh/config" 
+files=( ".bashrc" ".bash_profile" ".bash_aliases" ".inputrc" ".gitconfig" ".vimrc" ".tmux.conf" ) # used to also include ".ssh/config" 
 for dotfile in "${files[@]}"
 do
 	if [ -f ~/.original_dotfiles/$dotfile ]; then
